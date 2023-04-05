@@ -4,6 +4,8 @@ var express = require("express");
 var bodyParse = require("body-parser");
 var mongoose = require("mongoose");
 const e = require("express");
+const User = require('./src/model/user')
+const path = require('path')
 
 //create app
 
@@ -15,15 +17,86 @@ app.use(bodyParse.urlencoded({
     extended: true
 }))
 
+
+mongoose.connect('mongodb+srv://ave26:123@rpg-distribution.kxetrua.mongodb.net/rpg');
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Connected to MongoDB!');
+});
+
 // CRUD GALING CLIENT
 
-app.get('/api/login', async(req, res)=>{
-    const {  }
+app.use(express.static(path.join(__dirname, "client", "src")));
+app.get("*", (__, res) => {
+  res.sendFile(path.join(__dirname, "client", "src", "login.html"));
+});
 
 
+app.post('/api/register', async(req, res)=>{
+    const { username, password  } = req.body 
+
+    if (!username && !password){
+        return res.status(403).json({
+            message: 'No Input'
+        })
+    }
+
+    try{
+        const user = await User.create({
+            username: username,  
+            password: password,
+        })
+        return res.status(200).json({
+            'message': 'Account Created',
+            'data': user,
+        })
+
+    }catch(e){
+        console.log(e)
+    }
 
 })
-app.get('/api/register', async(__, res)=>{
+
+
+app.get('/api/login', async(req, res)=>{
+    const {username, password} = req.body
+
+ if (!username && !password){
+        return res.status(403).json({
+            message: 'No Input'
+        })
+    }
+
+    try{
+        const user = await User.findOne({
+            username: username,
+            password: password, 
+        })
+
+        if (!user){
+            return res.status(404).json({
+                message: 'No User Found'
+            })
+        }     
+    
+        return res.status(200).json({
+            'message': 'Login Successfully',
+            'data': user,
+        })
+
+    }catch(e){
+        console.log(e)
+    }
+
+})
+
+
+
+
+app.get('/', async(__, res)=>{
     res.send('Sample Api is Successfull')
 })
 app.get('/api/user', async(__, res)=>{
@@ -39,6 +112,8 @@ app.listen(port, ()=>{
 })
 
 // conect database
+
+
 
 
 // mongoose.connect('mongodb://0.0.0.0:27017/mydb', {

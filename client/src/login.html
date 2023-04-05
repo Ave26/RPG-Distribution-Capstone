@@ -3,17 +3,18 @@
 <head>
   <title>Login Page</title>
   <link rel="stylesheet" type="text/css" href="login.css">
+  <script src="components/login.js" defer></script>
 </head>
 <body>
   <div class="container">
     <img src="RPG.png" alt="Logo">
     <h2>Login Form</h2>
-    <form>
+    <form onsubmit={handleLogin}>
       <label>
-        <input type="text" placeholder="Username" name="username" required>
+        <input type="text" placeholder="Username" name="username" required id="username">
       </label>
       <label>
-        <input type="password" placeholder="Password" name="password" required>
+        <input type="password" placeholder="Password" name="password" required id="password">
       </label>
       <label>
         <input type="checkbox" name="remember-me"> 
@@ -22,7 +23,7 @@
       <p>
         Don't have an account? <a href="registration.html">Register</a>
       </p>
-      <input type="submit" value="Login">
+      <input type="submit" value="Login" id="btn-login">
     </form>
   </div>
 </body>
