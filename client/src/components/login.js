@@ -10,7 +10,7 @@ const loginUser = async()=>{
     const pwd = password.value
 
     const response = await fetch('http://localhost:3000/api/login', {
-        method: 'GET',
+        method: 'POST',
         body: {
             username: user,
             password: pwd,
@@ -23,5 +23,6 @@ const loginUser = async()=>{
 }
 
 btnLogin.addEventListener('click', (e)=>{
+    e.preventDefault()
     loginUser()
 })
