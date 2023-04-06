@@ -3,24 +3,6 @@ const password = document.getElementById("password");
 const btnLogin = document.getElementById("btn-login");
 
 // Define your routes
-const routes = {
-  "/": "home",
-  "/products": "products",
-  "/about": "about",
-};
-
-// Define your route handlers
-const handlers = {
-  home: () => {
-    console.log("Home page");
-  },
-  products: () => {
-    console.log("Products page");
-  },
-  about: () => {
-    console.log("About page");
-  },
-};
 
 const loginUser = async (e) => {
   e.preventDefault();
@@ -47,13 +29,7 @@ const loginUser = async (e) => {
     password.value = "";
 
     if (response.status === 200) {
-      window.location.href = "/home";
-      // const path = window.location.pathname;
-      // const routeMatch = Object.keys(routes).find((route) =>
-      //   path.startsWith(route)
-      // );
-      // const routeName = routes[routeMatch];
-      // handlers[routeName]();
+      window.location.href = "home.html";
     }
   } catch (e) {
     console.log(e);
@@ -63,6 +39,6 @@ const loginUser = async (e) => {
 };
 
 btnLogin.addEventListener("click", (e) => {
-  // e.preventDefault(); // prevent the default form submission behavior
+  e.preventDefault(); // prevent the default form submission behavior
   loginUser(e);
 });
