@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins, sans-serif");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #FBEAEB;
+    background-size: cover;
+    background-position: center;
+
+   
+    
+}
+
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background: linear-gradient(135deg, #FFE8F5, #234E70 ); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25); */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* header:hover {
+    background: linear-gradient(135deg, #FF55A5, #8B75FF);
+} */
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #2F3C7E;
+    text-transform: uppercase;
+}
+
+.logo{
+    height: 60px;
+    width: 200px;
+    margin-left: 2px;
+}
+
+header a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #2F3C7E;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #2F3C7E;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 40px;
+    /* text-shadow: 1px 1px 1px #77b2c4; */
+    letter-spacing: 1px;
+}
+
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    text-decoration: none;
+    background: #FFD700;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.navigation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+    text-decoration: none;
+}
+
+.navigation .btnShopnow-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #EEA47FFF;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color:#EEA47FFF;
+    font-weight: bold;
+    margin-left: 40px;
+    /* text-shadow: 1px 1px 2px #FFF; */
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.navigation .btnShopnow-popup:hover{
+    background: #EEA47FFF;
+    color: #fff;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #2F3C7E;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+footer a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+  
