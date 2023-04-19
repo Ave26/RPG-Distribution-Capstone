@@ -6,22 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Extrabold&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
 
 <body>
-    <header>
+    <header id="header">
+    
         <img src="RPG.png" alt="logo" class="logo">
         <nav class="navigation">
             <a href="#" class="nav__list">Home</a>
             <a href="#" class="nav__list">Product Catalog</a>
             <a href="#" class="nav__list">About us</a>
-            <button class="btnShopnow-popup">Shop now</button>
+            <button class="btnLogin-popup" onclick="showLoginPopup()">Login</button>
+            <script>
+                function showLoginPopup() {
+                    var loginPopup = document.getElementById("login-popup");
+                    var header = document.getElementById("header");
+                    loginPopup.classList.add("visible");
+                    header.style.display = "none";
+                    loginPopup.innerHTML = '<iframe src="login.html"></iframe>';
+                }
+            </script>
+            
         </nav>
     </header>
+    <div id="login-popup"></div>
+<div class="wrapper">
+   
+    <div class="container">
+        <h1 style="text-align: center;">Welcome to RPG Prostock!</h1>
+        <p style="text-align: center;">Take Control of Your Warehouse with Prostock: </p>
+        <p style="text-align: center;">The Ultimate Solution for Streamlined Management and Effortless Shopping! </p>
+        <p style="text-align: center;">To know more about our company click the button bellow! </p>
+        <button class="btnKnow-popup" onclick="window.open('https://rpg-ph.com', '_blank')">Learn More</button>
+    </div>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="homepage.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+    
+    <!-- <footer class="small-footer">
+        <p>&copy; 2023 Alright Reserve</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </footer> -->
+
+    <footer>
+        <div class="fcontainer">
+          <p>&copy; 2023 RPG Prostock. All Rights Reserved.</p>
+          <div class="social-media">
+            <a href="https://www.facebook.com/pages/RPG-Distribution-Services-Inc/183954811722273" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </footer>
+      
 </body>
-<footer class="small-footer">
-    <p>&copy; 2023 My Website</p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Service</a>
-</footer>    
 </html>
